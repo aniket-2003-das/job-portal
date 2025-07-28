@@ -3,29 +3,13 @@ services:
     name: my-backend
     runtime: node
     env: node
-    rootDir: backend         # 👈 This tells Render to run everything inside the backend folder
+    rootDir: backend         # 👈 Backend directory
     buildCommand: npm install
     startCommand: node index.js
-    envVars:
-      - key: MONGO_URI
-        fromEnvVar: MONGO_URI
-      - key: SECRET_KEY
-        fromEnvVar: SECRET_KEY
-      - key: PORT
-        fromEnvVar: PORT
-      - key: CLOUD_NAME
-        fromEnvVar: CLOUD_NAME
-      - key: API_KEY
-        fromEnvVar: API_KEY
-      - key: API_SECRET
-        fromEnvVar: API_SECRET
 
   - type: web
     name: my-frontend
     env: static
-    rootDir: frontend        # 👈 This tells Render to build and deploy the frontend from the frontend folder
+    rootDir: frontend        # 👈 Frontend directory
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    envVars:
-      - key: VITE_BACKEND_URL
-        value: https://my-backend.onrender.com
