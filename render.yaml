@@ -3,13 +3,6 @@ services:
     name: my-backend
     runtime: node
     env: node
-    rootDir: backend         # 👈 Backend directory
+    rootDir: backend
     buildCommand: npm install
     startCommand: node index.js
-
-  - type: web
-    name: my-frontend
-    env: static
-    rootDir: frontend        # 👈 Frontend directory
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
